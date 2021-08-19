@@ -21,6 +21,26 @@ soong_namespace {
 }
 
 cc_prebuilt_library_shared {
+	name: "libMpeg4SwEncoder",
+	owner: "motorola",
+	strip: {
+		none: true,
+	},
+	target: {
+		android_arm: {
+			srcs: ["proprietary/vendor/lib/libMpeg4SwEncoder.so"],
+		},
+		android_arm64: {
+			srcs: ["proprietary/vendor/lib64/libMpeg4SwEncoder.so"],
+		},
+	},
+	check_elf_files: false,
+	compile_multilib: "both",
+	prefer: true,
+	soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
 	name: "libfastcvopt",
 	owner: "motorola",
 	strip: {
@@ -32,6 +52,26 @@ cc_prebuilt_library_shared {
 		},
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/libfastcvopt.so"],
+		},
+	},
+	check_elf_files: false,
+	compile_multilib: "both",
+	prefer: true,
+	soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+	name: "liblbs_core",
+	owner: "motorola",
+	strip: {
+		none: true,
+	},
+	target: {
+		android_arm: {
+			srcs: ["proprietary/vendor/lib/liblbs_core.so"],
+		},
+		android_arm64: {
+			srcs: ["proprietary/vendor/lib64/liblbs_core.so"],
 		},
 	},
 	check_elf_files: false,
@@ -116,40 +156,6 @@ cc_prebuilt_library_shared {
 	},
 	check_elf_files: false,
 	compile_multilib: "both",
-	prefer: true,
-	soc_specific: true,
-}
-
-cc_prebuilt_library_shared {
-	name: "liblbs_core",
-	owner: "motorola",
-	strip: {
-		none: true,
-	},
-	target: {
-		android_arm64: {
-			srcs: ["proprietary/vendor/lib64/liblbs_core.so"],
-		},
-	},
-	check_elf_files: false,
-	compile_multilib: "64",
-	prefer: true,
-	soc_specific: true,
-}
-
-cc_prebuilt_library_shared {
-	name: "libloc_api_v02",
-	owner: "motorola",
-	strip: {
-		none: true,
-	},
-	target: {
-		android_arm64: {
-			srcs: ["proprietary/vendor/lib64/libloc_api_v02.so"],
-		},
-	},
-	check_elf_files: false,
-	compile_multilib: "64",
 	prefer: true,
 	soc_specific: true,
 }
@@ -318,14 +324,6 @@ prebuilt_etc_xml {
 	name: "manifest_android.hardware.drm@1.3-service.widevine",
 	owner: "motorola",
 	src: "proprietary/vendor/etc/vintf/manifest/manifest_android.hardware.drm@1.3-service.widevine.xml",
-	sub_dir: "vintf/manifest",
-	soc_specific: true,
-}
-
-prebuilt_etc_xml {
-	name: "vendor.qti.gnss@4.0-service",
-	owner: "motorola",
-	src: "proprietary/vendor/etc/vintf/manifest/vendor.qti.gnss@4.0-service.xml",
 	sub_dir: "vintf/manifest",
 	soc_specific: true,
 }
